@@ -61,7 +61,7 @@ public class Tests {
 
     @Test
     public void testIncorrectPredecessor(){
-        assertThat(exceptionOf(() -> RomanConverter.getNumberFromRoman("")), instanceOf(IllegalArgumentException.class));
+        assertThat(exceptionOf(() -> RomanConverter.getNumberFromRoman("VIIXX")), instanceOf(IllegalArgumentException.class));
     }
 
 
