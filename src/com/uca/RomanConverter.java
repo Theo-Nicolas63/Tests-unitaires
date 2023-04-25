@@ -48,12 +48,12 @@ public class RomanConverter{
 		int index = 0;
 
 		for (RomanNumber romanNumber : SYMBOLS) {
-			while(a.substring(index, index + romanNumber.getRoman().length()).equals(romanNumber.getRoman())) {
+			while(index < a.length() && a.substring(index, index + romanNumber.getRoman().length()).equals(romanNumber.getRoman())) {
 				resultat += romanNumber.getValue();
                 index += romanNumber.getRoman().length();
 			}
 		}
 
-		return 0;
+		return resultat;
 	}
 }
