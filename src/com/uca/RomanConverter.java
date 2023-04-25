@@ -30,12 +30,30 @@ public class RomanConverter{
 
 
 	public static String getRomanFromNumber(int a) throws IllegalArgumentException{
-		//TODO
-		return "";
+
+		String resultat = "";
+
+		for (RomanNumber romanNumber : SYMBOLS) {
+			while(a >= romanNumber.getValue()) {
+				resultat += romanNumber.getRoman();
+                a -= romanNumber.getValue();
+			}
+		}
+
+		return resultat;
 	}
 	
 	public static int getNumberFromRoman(String a) throws IllegalArgumentException{
-		//TODO
-		return 0;
+		int resultat = 0;
+		int index = 0;
+
+		for (RomanNumber romanNumber : SYMBOLS) {
+			while(index < a.length() && a.substring(index, index + romanNumber.getRoman().length()).equals(romanNumber.getRoman())) {
+				resultat += romanNumber.getValue();
+                index += romanNumber.getRoman().length();
+			}
+		}
+
+		return resultat;
 	}
 }
