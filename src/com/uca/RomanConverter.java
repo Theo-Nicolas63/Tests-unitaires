@@ -33,6 +33,10 @@ public class RomanConverter{
 
 		String resultat = "";
 
+		if(a < 1 || a > 3999){
+			throw new IllegalArgumentException();
+		}
+
 		for (RomanNumber romanNumber : SYMBOLS) {
 			while(a >= romanNumber.getValue()) {
 				resultat += romanNumber.getRoman();
@@ -47,7 +51,11 @@ public class RomanConverter{
 		int resultat = 0;
 		int index = 0;
 
-		for (RomanNumber romanNumber : SYMBOLS) {
+		if(!VALIDATION_RE.matcher(a).matches()){
+			throw new IllegalArgumentException();
+		}
+
+		for (RomanNumber romanNumber : SYMBOLS) { // COMPARER QUE SI NOMBRE CARACTERE LOGIQUE AVEC LE SYMBOLE DONC PAS 1 AVEC UN 2 CARACTERES
 			while(index < a.length() && a.substring(index, index + romanNumber.getRoman().length()).equals(romanNumber.getRoman())) {
 				resultat += romanNumber.getValue();
                 index += romanNumber.getRoman().length();

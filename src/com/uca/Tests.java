@@ -28,7 +28,7 @@ public class Tests {
 	//TODO : les autres tests
     @Test
     public void testConverterNumberFromRoman(){
-        assertThat(RomanConverter.getNumberFromRoman("L"), equalTo(50));
+        assertThat(RomanConverter.getNumberFromRoman("IV"), equalTo(4));
     }
 
     @Test
