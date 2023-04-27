@@ -5,7 +5,7 @@ public class Start{
 	//Start class
 	public static void main(String[] args){
 		
-		RomanNumber roman = new RomanNumber("I");
+		RomanNumber roman = new RomanNumber("L");
 		System.out.println(roman.getValue());
 		System.out.println(roman.getRoman());
 		
