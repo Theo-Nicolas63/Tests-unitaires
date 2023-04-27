@@ -1,6 +1,6 @@
 package com.uca;
 
-public class RomanNumber extends Number{
+public class RomanNumber extends Number implements Comparable{
 	
 	private String roman;
 	
@@ -50,8 +50,8 @@ public class RomanNumber extends Number{
 	*/
 	@Override
 	public double doubleValue() {
-		// TODO
-		return 0;
+
+		return (double) this.value;
 	}
 
 	/**
@@ -59,8 +59,8 @@ public class RomanNumber extends Number{
 	*/
 	@Override
 	public float floatValue() {
-		// TODO
-		return 0;
+
+		return (float) this.value;
 	}
 
 	/**
@@ -68,8 +68,8 @@ public class RomanNumber extends Number{
 	*/
 	@Override
 	public int intValue() {
-		// TODO
-		return 0;
+
+		return this.value;
 	}
 
 	/**
@@ -77,13 +77,66 @@ public class RomanNumber extends Number{
 	*/
 	@Override
 	public long longValue() {
-		// TODO
-		return 0;
+
+		return (long) this.value;
 	}
 
 	@Override
 	public String toString() {
-		//TODO
-		return "";
+	
+		return this.roman;
 	}
+
+	/**
+    * @{inheritDoc}
+    */
+	@Override
+	public int compareTo(Object o) {
+		
+		if(o == null){
+			throw new NullPointerException("L'objet a comparé est null");
+		}
+
+        if(o instanceof RomanNumber){
+
+			RomanNumber romanCompare = (RomanNumber) o;
+
+			if(this.value == romanCompare.getValue())
+
+				return 0;
+
+			if(this.value < romanCompare.getValue())
+
+            	return -1;
+
+			return 1;
+        }
+		else {
+			throw new ClassCastException("L'objet a comparé n'est pas une instance de RomanNumber");
+		}     
+	}
+
+	/**
+    * @{inheritDoc}
+    */
+	@Override
+    public int hashCode() {
+
+        return this.value;
+    }
+
+	/**
+    * @{inheritDoc}
+    */
+	@Override
+    public boolean equals(Object obj) {
+
+		if(obj == null){
+            return false;
+        }
+
+		
+	}
+
+
 }
