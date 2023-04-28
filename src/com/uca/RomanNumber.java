@@ -121,8 +121,12 @@ public class RomanNumber extends Number implements Comparable{
     */
 	@Override
     public int hashCode() {
+		int hash = 31;
 
-        return this.value;
+		hash = hash * 17 + this.roman.hashCode();
+		hash = hash * 17 + Integer.hashCode(this.value);
+
+        return hash;
     }
 
 	/**
@@ -132,8 +136,22 @@ public class RomanNumber extends Number implements Comparable{
     public boolean equals(Object obj) {
 
 		if(obj == null){
-            return false;
+			throw new NullPointerException("L'objet a comparé est null");
+		}
+
+        if(obj instanceof RomanNumber){
+
+			RomanNumber romanCompare = (RomanNumber) obj;
+
+			if(this.value == romanCompare.getValue())
+
+				return true;
+
+			return false;
         }
+		else {
+			throw new ClassCastException("L'objet a comparé n'est pas une instance de RomanNumber");
+		}     
 
 		
 	}
