@@ -55,7 +55,7 @@ public class RomanConverter{
 			throw new IllegalArgumentException();
 		}
 
-		for (RomanNumber romanNumber : SYMBOLS) { // COMPARER QUE SI NOMBRE CARACTERE LOGIQUE AVEC LE SYMBOLE DONC PAS 1 AVEC UN 2 CARACTERES
+		for (RomanNumber romanNumber : SYMBOLS) { 
 			while(index+romanNumber.getRoman().length() <= a.length() 
 				&& a.substring(index, index+romanNumber.getRoman().length()).contentEquals(romanNumber.getRoman())) {
 				resultat += romanNumber.getValue();
