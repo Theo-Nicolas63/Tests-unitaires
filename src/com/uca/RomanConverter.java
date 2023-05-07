@@ -52,7 +52,7 @@ public class RomanConverter{
 		int index = 0;
 
 		if(!VALIDATION_RE.matcher(a).matches()){
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Le nombre romain n'est pas valide");
 		}
 
 		for (RomanNumber romanNumber : SYMBOLS) { 
