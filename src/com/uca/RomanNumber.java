@@ -1,6 +1,6 @@
 package com.uca;
 
-public class RomanNumber extends Number implements Comparable{
+public class RomanNumber extends Number implements Comparable<Number>{
 	
 	private String roman;
 	
@@ -88,32 +88,24 @@ public class RomanNumber extends Number implements Comparable{
 	}
 
 	/**
-    * @{inheritDoc}
+    * @{inheritDoc} Compare un chiffre romain avec n'importe quel autre nombre
     */
 	@Override
-	public int compareTo(Object o) {
+	public int compareTo(Number n) {
 		
-		if(o == null){
+		if(n == null){
 			throw new NullPointerException("L'objet a comparé est null");
 		}
 
-        if(o instanceof RomanNumber){
+		if(this.value == n.intValue())
+			return 0;
+			
+		else if(this.value > n.intValue())
+				return 1;
+		
+		return -1;
 
-			RomanNumber romanCompare = (RomanNumber) o;
-
-			if(this.value == romanCompare.getValue())
-
-				return 0;
-
-			if(this.value < romanCompare.getValue())
-
-            	return -1;
-
-			return 1;
-        }
-		else {
-			throw new ClassCastException("L'objet a comparé n'est pas une instance de RomanNumber");
-		}     
+		
 	}
 
 	/**
